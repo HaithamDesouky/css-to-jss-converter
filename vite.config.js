@@ -4,6 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/css-to-jss-converter/", // Update this to your GitHub repository name
   plugins: [react()],
   resolve: {
     alias: {
