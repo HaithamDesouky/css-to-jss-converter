@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { cssToJss } from './utils/cssToJss'
-import Button from './components/Button'
-import { Card, CardContent } from './components/Card'
-import Textarea from './components/textArea'
+import { cssToJss } from '@utils/cssToJss'
+import Button from '@components/Button'
+import { Card, CardContent } from '@components/Card'
+import Textarea from '@components/textArea'
 
 export default function App() {
   const [cssInput, setCssInput] = useState('')
