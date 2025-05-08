@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import { Textarea } from "./components/textArea";
-import { cssToJss } from "./utils/cssToJss";
-import { Button } from "./components/button";
-import { Card, CardContent } from "./components/card";
+import React, { useState } from 'react'
+import { cssToJss } from './utils/cssToJss'
+import Button from './components/Button'
+import { Card, CardContent } from './components/Card'
+import Textarea from './components/textArea'
 
 export default function App() {
-  const [cssInput, setCssInput] = useState("");
-  const [jssOutput, setJssOutput] = useState("");
+  const [cssInput, setCssInput] = useState('')
+  const [jssOutput, setJssOutput] = useState('')
 
   const handleConvert = () => {
     try {
-      const jss = cssToJss(cssInput);
-      setJssOutput(JSON.stringify(jss, null, 2)); // Convert the object to a string for display
+      const jss = cssToJss(cssInput)
+      setJssOutput(JSON.stringify(jss, null, 2))
     } catch (err) {
-      setJssOutput("// Error parsing CSS");
+      setJssOutput('// Error parsing CSS')
     }
-  };
+  }
 
   return (
     <main className="min-h-screen bg-gray-100 p-4">
@@ -48,5 +48,5 @@ export default function App() {
         </Card>
       </div>
     </main>
-  );
+  )
 }
