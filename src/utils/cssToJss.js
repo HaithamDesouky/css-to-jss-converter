@@ -1,20 +1,24 @@
 export function cssToJss(css) {
-  const lines = css
-    .split(";")
-    .map((line) => line.trim())
-    .filter((line) => line.length > 0);
+  const cleanedCss = css.replace(/;;+/g, ';').replace(/['"]+/g, '')
 
-  const jss = {};
+  const lines = cleanedCss
+    .split(';')
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0)
+
+  const jss = {}
 
   lines.forEach((line) => {
-    const [property, value] = line.split(":").map((part) => part.trim());
+    const [property, value] = line.split(':').map((part) => part.trim())
 
-    const camelCaseProperty = property.replace(/-([a-z])/g, (match, p1) =>
-      p1.toUpperCase()
-    );
+    if (property && value) {
+      const camelCaseProperty = property.replace(/-([a-z])/g, (match, p1) =>
+        p1.toUpperCase(),
+      )
 
-    jss[camelCaseProperty] = value;
-  });
+      jss[camelCaseProperty] = value
+    }
+  })
 
-  return jss;
+  return jss
 }
